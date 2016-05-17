@@ -1,20 +1,26 @@
-'use strict';
-const lineRegex = /^([A-Za-z0-9\-]+)(:\s*)(.+)$/;
-const emptyRegex = /^\s*$/;
+"use strict";
 
-class ParseMarkdownMetadata {
-  constructor(source) {
-    const lines = source.split('\n');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var lineRegex = /^([A-Za-z0-9\-]+)(:\s*)(.+)$/;
+var emptyRegex = /^\s*$/;
+
+var ParseMarkdownMetadata = function () {
+  function ParseMarkdownMetadata(source) {
+    _classCallCheck(this, ParseMarkdownMetadata);
+
+    var lines = source.split('\n');
 
     this.props = {};
 
-    let lastMatch = null;
-    let lineMatch = null;
-    let keyword = null;
-    let whitespaceLength = null;
+    var lastMatch = null;
+    var lineMatch = null;
+    var keyword = null;
+    var whitespaceLength = null;
 
-    while ((lineMatch = lines[0].match(lineRegex)) !== null ||
-    (lastMatch && !!lines[0].substr(0, whitespaceLength).match(emptyRegex))) {
+    while ((lineMatch = lines[0].match(lineRegex)) !== null || lastMatch && !!lines[0].substr(0, whitespaceLength).match(emptyRegex)) {
       if (lineMatch) {
         console.log(lineMatch);
         keyword = lineMatch[1];
@@ -24,10 +30,10 @@ class ParseMarkdownMetadata {
         lastMatch = lineMatch;
         whitespaceLength = (lastMatch[1] + lastMatch[2]).length;
       } else {
-        const val = lines[0].substr(whitespaceLength);
+        var val = lines[0].substr(whitespaceLength);
 
         if (this.props[keyword].substr(-2) === '  ') {
-          this.props[keyword] += `\n${val}`;
+          this.props[keyword] += '\n' + val;
         } else {
           this.props[keyword] += val;
         }
@@ -39,9 +45,14 @@ class ParseMarkdownMetadata {
     this.content = lines.join('\n');
   }
 
-  toString() {
-    return this.content;
-  }
-}
+  _createClass(ParseMarkdownMetadata, [{
+    key: 'toString',
+    value: function toString() {
+      return this.content;
+    }
+  }]);
+
+  return ParseMarkdownMetadata;
+}();
 
 module.exports = ParseMarkdownMetadata;
