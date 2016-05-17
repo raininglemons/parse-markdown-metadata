@@ -1,3 +1,4 @@
+'use strict';
 const lineRegex = /^([A-Za-z0-9\-]+)(:\s*)(.+)$/;
 const emptyRegex = /^\s*$/;
 
