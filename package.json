@@ -1,6 +1,6 @@
 {
   "name": "parse-markdown-metadata",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Parses properties from markdown formatted strings.",
   "main": "index.js",
   "scripts": {
