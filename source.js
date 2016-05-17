@@ -16,7 +16,6 @@ class ParseMarkdownMetadata {
     while ((lineMatch = lines[0].match(lineRegex)) !== null ||
     (lastMatch && !!lines[0].substr(0, whitespaceLength).match(emptyRegex))) {
       if (lineMatch) {
-        console.log(lineMatch);
         keyword = lineMatch[1];
 
         this.props[keyword] = lineMatch[3];
