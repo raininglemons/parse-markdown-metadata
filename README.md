@@ -1,7 +1,3 @@
-Title:  Parse Markdown Metadata
-Author: Dom England
-Date:   May 17, 2016
-
 # parse-markdown-metadata
 
 Simple helper to parse a markdown formatted string and pull out any metadata / properties present. This module assumes
