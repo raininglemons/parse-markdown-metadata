@@ -2,8 +2,6 @@
 const lineRegex = /^([A-Za-z0-9\-]+)(:\s*)(.+)$/;
 const emptyRegex = /^\s*$/;
 
-const fs = require('fs');
-
 class ParseMarkdownMetadata {
   constructor(source) {
     var lines = source.split('\n');
@@ -45,9 +43,5 @@ class ParseMarkdownMetadata {
     return this.content;
   }
 }
-
-console.log(
-  new ParseMarkdownMetadata(fs.readFileSync('README.md').toString())
-);
 
 module.exports = ParseMarkdownMetadata;
