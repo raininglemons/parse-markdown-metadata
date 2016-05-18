@@ -25,5 +25,12 @@
     "gulp-babel": "^6.1.2",
     "gulp-rename": "^1.2.2"
   },
-  "tonicExampleFilename": "example.js"
+  "tonicExampleFilename": "example.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raininglemons/parse-markdown-metadata.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raininglemons/parse-markdown-metadata/issues"
+  }
 }
